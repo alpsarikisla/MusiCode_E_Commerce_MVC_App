@@ -12,7 +12,7 @@ namespace MusiCodeWebApp.Controllers
         MusiCodeDBModel db = new MusiCodeDBModel();
         public ActionResult Index()
         {
-            return View(db.Products.Where(x=> x.IsDeleted== false && x.IsActive == true));
+            return View(db.Products.Where(x => x.IsDeleted == false && x.IsActive == true));
         }
        
     }

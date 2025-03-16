@@ -4,11 +4,19 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutPage1.cshtml";
 }
-
+@if (TempData["info"] != null)
+{
+<div class="validation-summary-success">
+    @TempData["info"]
+    @{
+        TempData["info"] = null;
+    }
+</div>
+}
 @foreach (Product item in Model)
 {
     <div class="productContainer">
-        
+
         <div class="productImage">
             <img src="~/Assets/ProductImages/@item.Image" style="width:100%" />
         </div>
@@ -24,9 +32,9 @@
                 <strong>@item.Price ₺</strong>
             </div>
         </div>
-        <div style="padding:5px 0px; text-align:center" >
+        <div style="padding:5px 0px; text-align:center">
             <a class="addcart" href="">Sepete Ekle</a>
-            <a href="">Favorilere Ekle</a>
+            <a href="@Url.Action("Add","Favorite", new {id=item.ID})">Favorilere Ekle</a>
         </div>
     </div>
 }

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
     <link href="~/Assets/css/MainStyle.css" rel="stylesheet" />
+    @RenderSection("styles", false)
 </head>
 <body>
     <div class="topBarContainer">
@@ -12,10 +13,24 @@
             <div class="topBarLeft">
                 <img src="~/Assets/SiteImages/MusicodeLogo.png" class="logo" />
             </div>
-            <div class="topbarRight">
-                <a href="">Giriş Yap</a>
-                <a href="">Üye Ol</a>
-            </div>
+            @if (Session["member"] != null)
+            {
+                <div class="topbarRight">
+                    <a href="@Url.Action("LogOut","Member")">Çıkış Yap</a>
+                    <a href="@Url.Action("Cart","Member")">Sepetim (0) </a>
+                    <a href="@Url.Action("Favorites","Member")">Favoriler</a>
+                    <a href="@Url.Action("Profile","Member")">Hesabım</a>
+                    <div class="clearfix"></div>
+                </div>
+            }
+            else
+            {
+                <div class="topbarRight">
+                    <a href="@Url.Action("Login","Member")">Sepetim (0) </a>
+                    <a href="@Url.Action("Login","Member")">Giriş Yap</a>
+                    <a href="@Url.Action("Register","Member")">Üye Ol</a>
+                </div>
+            }
             <div class="clearfix"></div>
         </div>
     </div>

@@ -38,6 +38,7 @@ namespace MusiCodeWebApp.Areas.ManagerPanel.Controllers
                     db.Categories.Add(model);
                     db.SaveChanges();
                     return RedirectToAction("Index", "Category");
+
                 }
                 catch
                 {

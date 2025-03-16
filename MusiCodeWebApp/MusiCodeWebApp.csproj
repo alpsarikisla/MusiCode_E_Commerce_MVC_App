@@ -106,6 +106,7 @@
     <Content Include="Areas\ManagerPanel\Assets\images\MusicodeLogo.svg" />
     <Content Include="Areas\ManagerPanel\Assets\images\recent.png" />
     <Content Include="Assets\css\MainStyle.css" />
+    <Content Include="Assets\css\MemberLogin.css" />
     <Content Include="Assets\ProductImages\none.jpg" />
     <Content Include="Assets\SiteImages\940-hoofdtelefoon-sennheiser-banner.jpg.jpg" />
     <Content Include="Assets\SiteImages\audiosanctuary_sennheiser_spares_banner_3.jpg" />
@@ -127,7 +128,9 @@
     <Compile Include="Areas\ManagerPanel\Data\ManagerLoginViewModel.cs" />
     <Compile Include="Areas\ManagerPanel\Filters\ManagerLoginRequiredFilterAttribute.cs" />
     <Compile Include="Areas\ManagerPanel\ManagerPanelAreaRegistration.cs" />
+    <Compile Include="Controllers\FavoriteController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -136,10 +139,13 @@
     <Compile Include="Models\Brand.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Entity.cs" />
+    <Compile Include="Models\Favorite.cs" />
     <Compile Include="Models\Manager.cs" />
     <Compile Include="Models\ManagerRole.cs" />
+    <Compile Include="Models\Member.cs" />
     <Compile Include="Models\MusiCodeDBModel.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\ViewModels\MemberLoginViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -166,6 +172,8 @@
     <Content Include="Views\Shared\_LayoutPage1.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Menu\_Index.cshtml" />
+    <Content Include="Views\Member\Register.cshtml" />
+    <Content Include="Views\Member\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -175,6 +183,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Favorite\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

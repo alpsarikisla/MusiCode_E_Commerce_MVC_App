@@ -1,0 +1,41 @@
+﻿
+
+.container {
+    padding: 20px;
+    width: 400px;
+    min-height: 300px;
+    margin: 10px auto;
+    background-color: white;
+    border-radius:20px;
+    border:1px solid silver;
+}
+
+.row {
+    margin: 20px 0;
+}
+
+.formTextbox {
+    padding: 15px;
+    width: 100%;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    border-radius:5px;
+    border:1px solid silver;
+}
+.loginButton {
+    width: 100%;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    padding: 15px;
+    background-color: #7e0490;
+    color: white;
+    font-size: 15pt;
+    border: 1px solid #7e0490;
+    border-radius: 5px;
+}
+
+.validationmesage {
+    color: red;
+}
