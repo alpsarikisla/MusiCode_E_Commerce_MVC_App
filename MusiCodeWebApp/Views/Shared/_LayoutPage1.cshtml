@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Assets/css/MainStyle.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="topBarContainer">
+        <div class="topBar">
+            <div class="topBarLeft">
+                <img src="~/Assets/SiteImages/MusicodeLogo.png" class="logo" />
+            </div>
+            <div class="topbarRight">
+                <a href="">Giriş Yap</a>
+                <a href="">Üye Ol</a>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    
+    <div class="mainContainer">
+        <div class="hello">
+            <img src="~/Assets/SiteImages/audiosanctuary_sennheiser_spares_banner_3.jpg" style="width:100%; border:1px solid silver"  />
+        </div>
+        <div class="categoryBar">
+            @Html.Action("_Index", "Menu")
+        </div>
+        <div class="productBase">
+            @RenderBody()
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</body>
+</html>

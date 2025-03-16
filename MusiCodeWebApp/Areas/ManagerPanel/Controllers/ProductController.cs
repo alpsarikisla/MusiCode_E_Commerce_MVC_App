@@ -178,5 +178,16 @@ namespace MusiCodeWebApp.Areas.ManagerPanel.Controllers
                 return RedirectToAction("Index", "Product");
             }
         }
+        public ActionResult Test()
+        {
+            return View();
+        }
+        [HttpGet]
+        public ActionResult _Create()
+        {
+            ViewBag.Category_ID = new SelectList(db.Categories.Where(x => x.IsDeleted == false), "ID", "Name");
+            ViewBag.Brand_ID = new SelectList(db.Brands.Where(x => x.IsDeleted == false), "ID", "Name");
+            return View();
+        }
     }
 }

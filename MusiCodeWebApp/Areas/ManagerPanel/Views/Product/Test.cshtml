@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "Ürün Ekle";
+    Layout = "~/Areas/ManagerPanel/Views/Shared/_LayoutPage1.cshtml";
+}
+@section styles
+{
+    <link href="~/Areas/ManagerPanel/Assets/css/FormStyle.css" rel="stylesheet" />
+    <style>
+        .sol {
+            float: left;
+            width: 710px;
+            margin-right: 10px;
+        }
+
+        .sag {
+            float: left;
+            width: 710px;
+            margin-left: 20px;
+        }
+    </style>
+}
+<div class="pagetitle">
+    <h2>Ürün Ekle</h2>
+</div>
+<div class="formContainer">
+    <div class="sol">
+        @Html.Action("_Create", "Product")
+    </div>
+    <div class="sag">
+        @Html.Action("_Create", "Category")
+    </div>
+    <div class="clearfix"></div>
+</div>
+

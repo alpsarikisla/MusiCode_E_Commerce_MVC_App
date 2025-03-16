@@ -1,0 +1,7 @@
+﻿@using MusiCodeWebApp.Models
+@model IEnumerable<Category>
+
+@foreach (Category item in Model)
+{
+    <a href="@Url.Action("Category","Home", new {id = item.ID})">@item.Name</a>
+}

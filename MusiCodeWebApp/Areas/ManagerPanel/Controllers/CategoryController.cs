@@ -22,6 +22,11 @@ namespace MusiCodeWebApp.Areas.ManagerPanel.Controllers
         {
             return View();
         }
+        [HttpGet]
+        public ActionResult _Create()
+        {
+            return View();
+        }
 
         [HttpPost]
         public ActionResult Create(Category model)

@@ -1,0 +1,34 @@
+﻿
+@model MusiCodeWebApp.Models.Category
+@section styles
+{
+    <link href="~/Areas/ManagerPanel/Assets/css/FormStyle.css" rel="stylesheet" />
+}
+
+<div class="formContainer">
+    @using (Html.BeginForm("Create","Category", FormMethod.Post))
+    {
+        if (ViewBag.mesaj != null)
+        {
+            <label class="validationmesage">@ViewBag.mesaj</label>
+        }
+        <div class="row">
+            <label>Isim</label>
+            @Html.EditorFor(x => x.Name, new { htmlAttributes = new { @class = "textbox" } })
+            @Html.ValidationMessageFor(x => x.Name, "", new { @class = "validationmesage" })
+        </div>
+        <div class="row">
+            <label>Açıklama</label>
+            @Html.EditorFor(x => x.Description, new { htmlAttributes = new { @class = "textbox" } })
+            @Html.ValidationMessageFor(x => x.Description, "", new { @class = "validationmesage" })
+        </div>
+        <div class="row">
+            @Html.EditorFor(x => x.IsActive, new { htmlAttributes = new { @id = "isActive" } })
+            <label for="isActive"> Aktif Kategori</label>
+        </div>
+        <div class="row">
+            <button type="submit" class="formbutton">Kategori Ekle</button>
+        </div>
+    }
+</div>
+

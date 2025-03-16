@@ -17,7 +17,8 @@ namespace MusiCodeWebApp.Areas.ManagerPanel
             context.MapRoute(
                 "ManagerPanel_default",
                 "ManagerPanel/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
+                new { action = "Index", id = UrlParameter.Optional },
+                namespaces: new[] { "MusiCodeWebApp.Areas.ManagerPanel.Controllers" }
             );
         }
     }
