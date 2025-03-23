@@ -3,11 +3,13 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
+    <title> Musicode.com - @ViewBag.Title</title>
+    <link rel="icon" href="~/Assets/SiteImages/favicon_io/favicon.ico" type="image/x-icon">
     <link href="~/Assets/css/MainStyle.css" rel="stylesheet" />
     @RenderSection("styles", false)
 </head>
 <body>
+    <div id="top"></div>
     <div class="topBarContainer">
         <div class="topBar">
             <div class="topBarLeft">
@@ -17,8 +19,8 @@
             {
                 <div class="topbarRight">
                     <a href="@Url.Action("LogOut","Member")">Çıkış Yap</a>
-                    <a href="@Url.Action("Index","Cart")">Sepetim (@Session["cartcount"]) </a>
-                    <a href="@Url.Action("Index","Cart")">Sepetim ( @Html.Action("_GetCartCount", "Home")) </a>
+                    @*<a href="@Url.Action("Index","Cart")">Sepetim (@Session["cartcount"]) </a>*@
+                    <a href="@Url.Action("Index","Cart")">Sepetim (@Html.Action("_GetCartCount", "Home")) </a>
                     <a href="@Url.Action("Index","Favorite")">Favoriler</a>
                     <a href="@Url.Action("Profile","Member")">Hesabım</a>
                     <div class="clearfix"></div>

@@ -34,34 +34,39 @@
         {
             <label class="validationmesage">@ViewBag.mesaj</label>
         }
-        <div class="sol">
-            <div class="row">
-                <label>Isim</label>
-                @Html.EditorFor(x => x.Name, new { htmlAttributes = new { @class = "textbox" } })
-                @Html.ValidationMessageFor(x => x.Name, "", new { @class = "validationmesage" })
-            </div>
-            <div class="row">
-                <label>Kategori Seçiniz</label>
-                @Html.DropDownList("Category_ID", null, htmlAttributes: new { @class = "textbox" })
-            </div>
-            <div class="row">
-                <label>Marka Seçiniz</label>
-                @Html.DropDownList("Brand_ID", null, htmlAttributes: new { @class = "textbox" })
-            </div>
-            <div class="row">
-                <label>Açıklama</label>
-                @Html.EditorFor(x => x.Description, new { htmlAttributes = new { @class = "textbox" } })
-                @Html.ValidationMessageFor(x => x.Description, "", new { @class = "validationmesage" })
-            </div>
-            <div class="row">
-                @Html.EditorFor(x => x.IsActive, new { htmlAttributes = new { @id = "isActive" } })
-                <label for="isActive"> Aktif Ürün</label>
-            </div>
-            <div class="row">
-                @Html.EditorFor(x => x.IsRecent, new { htmlAttributes = new { @id = "IsRecent" } })
-                <label for="IsRecent"> Önerilen Ürün</label>
-            </div>
-        </div>
+<div class="sol">
+    <div class="row">
+        <label>Isim</label>
+        @Html.EditorFor(x => x.Name, new { htmlAttributes = new { @class = "textbox" } })
+        @Html.ValidationMessageFor(x => x.Name, "", new { @class = "validationmesage" })
+    </div>
+    <div class="row">
+        <label>Kategori Seçiniz</label>
+        @Html.DropDownList("Category_ID", null, htmlAttributes: new { @class = "textbox" })
+    </div>
+    <div class="row">
+        <label>Marka Seçiniz</label>
+        @Html.DropDownList("Brand_ID", null, htmlAttributes: new { @class = "textbox" })
+    </div>
+    <div class="row">
+        <label>Açıklama</label>
+        @Html.EditorFor(x => x.Description, new { htmlAttributes = new { @class = "textbox" } })
+        @Html.ValidationMessageFor(x => x.Description, "", new { @class = "validationmesage" })
+    </div>
+    <div class="row">
+        <label>Özet</label>
+        @Html.EditorFor(x => x.Summary, new { htmlAttributes = new { @class = "textbox" } })
+        @Html.ValidationMessageFor(x => x.Summary, "", new { @class = "validationmesage" })
+    </div>
+    <div class="row">
+        @Html.EditorFor(x => x.IsActive, new { htmlAttributes = new { @id = "isActive" } })
+        <label for="isActive"> Aktif Ürün</label>
+    </div>
+    <div class="row">
+        @Html.EditorFor(x => x.IsRecent, new { htmlAttributes = new { @id = "IsRecent" } })
+        <label for="IsRecent"> Önerilen Ürün</label>
+    </div>
+</div>
         <div class="sag">
             <div class="row">
                 <label>Stok</label>

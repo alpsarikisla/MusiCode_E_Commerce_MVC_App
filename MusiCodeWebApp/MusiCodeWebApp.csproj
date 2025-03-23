@@ -110,6 +110,13 @@
     <Content Include="Assets\ProductImages\none.jpg" />
     <Content Include="Assets\SiteImages\940-hoofdtelefoon-sennheiser-banner.jpg.jpg" />
     <Content Include="Assets\SiteImages\audiosanctuary_sennheiser_spares_banner_3.jpg" />
+    <Content Include="Assets\SiteImages\favicon_io\android-chrome-192x192.png" />
+    <Content Include="Assets\SiteImages\favicon_io\android-chrome-512x512.png" />
+    <Content Include="Assets\SiteImages\favicon_io\apple-touch-icon.png" />
+    <Content Include="Assets\SiteImages\favicon_io\favicon-16x16.png" />
+    <Content Include="Assets\SiteImages\favicon_io\favicon-32x32.png" />
+    <Content Include="Assets\SiteImages\favicon_io\favicon.ico" />
+    <Content Include="Assets\SiteImages\get_tr.jpg" />
     <Content Include="Assets\SiteImages\MusicodeLogo-White.png" />
     <Content Include="Assets\SiteImages\MusicodeLogo.png" />
     <Content Include="Assets\SiteImages\MusicodeLogo.svg" />
@@ -133,6 +140,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Filters\MemberLoginRequiredFilterAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -171,6 +179,7 @@
     <Content Include="Areas\ManagerPanel\Views\Product\Test.cshtml" />
     <Content Include="Areas\ManagerPanel\Views\Category\_Create.cshtml" />
     <Content Include="Areas\ManagerPanel\Views\Product\_Create.cshtml" />
+    <Content Include="Assets\SiteImages\favicon_io\site.webmanifest" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_LayoutPage1.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -180,6 +189,7 @@
     <Content Include="Views\Favorite\Index.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\Home\_GetCartCount.cshtml" />
+    <Content Include="Views\Product\Detail.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

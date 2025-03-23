@@ -1,0 +1,47 @@
+﻿@model MusiCodeWebApp.Models.Product
+@{
+    ViewBag.Title = Model.Name;
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<div class="detailContainer" >
+    <div class="image">
+        <img src="~/Assets/ProductImages/@Model.Image" />
+    </div>
+    <div class="detail">
+        <h2 >@Model.Brand.Name - @Model.Name</h2>
+        <hr />
+        <div  class="row">
+            @Model.Category.Name @Model.Brand.Name
+        </div>
+        <div class="row">
+            @Model.Summary
+        </div>
+        <div class="row priceRow">
+            @{ decimal fakeprice = Model.Price + 500; }
+            <label style="text-decoration:line-through"> @fakeprice ₺</label>&nbsp;&nbsp;&nbsp;
+            <strong style="color: #7e0490"> @Model.Price ₺</strong>
+        </div>
+       
+        @using(Html.BeginForm("DetailAdd", "Cart", FormMethod.Post, new { id = Model.ID }))
+        {
+            <div  class="row">
+                <input type="number" id="quantity" class="buyText" value="1" />
+                <button type="submit" class="buyButton">Sepete Ekle</button>
+            </div>
+        }
+    <div style="padding:10px;">
+        <img src="~/Assets/SiteImages/get_tr.jpg" width="220" />
+        <img src="~/Assets/SiteImages/get_tr.jpg" width="220" />
+    </div>
+    </div>
+    <div style="clear:both"></div>
+</div>
+<div class="description">
+    <h3>Detay</h3>
+    <hr />
+    <div class="descriptionContainer">
+        @Model.Description
+    </div>
+</div>
+<a href="#top">Yukarıya Çık</a>

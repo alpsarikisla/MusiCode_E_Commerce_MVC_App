@@ -50,23 +50,68 @@ namespace MusiCodeWebApp.Controllers
             }
             return RedirectToAction("Index", "Cart");
         }
+        public ActionResult DetailAdd(int? id, int quantity)
+        {
+            if (id == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            Product p = db.Products.Find(id);
+            if (p == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            int mid = (Session["member"] as Member).ID;
+            int count = db.Carts.Count(x => x.Member_ID == mid && x.Product_ID == id);
+            if (count == 0)
+            {
+                Cart c = new Cart();
+                c.Product_ID = Convert.ToInt32(id);
+                c.Member_ID = mid;
+                c.Quantity = quantity;
+                db.Carts.Add(c);
+                db.SaveChanges();
+                Session["cartcount"] = Convert.ToInt32(Session["cartcount"]) + 1;
+            }
+            else
+            {
+                int cid = db.Carts.FirstOrDefault(x => x.Member_ID == mid && x.Product_ID == id).ID;
+                Cart c = db.Carts.Find(cid);
+                c.Quantity = c.Quantity + 1;
+                db.SaveChanges();
+            }
+            return RedirectToAction("Index", "Cart");
+        }
 
         public ActionResult Increase(int? id)
         {
-
-            return View();
+            Cart c = db.Carts.Find(id);
+            c.Quantity = c.Quantity + 1;
+            db.SaveChanges();
+            return RedirectToAction("Index", "Cart");
         }
 
         public ActionResult Decrease(int? id)
         {
-
-            return View();
+            Cart c = db.Carts.Find(id);
+            if (c.Quantity > 1)
+            {
+                c.Quantity = c.Quantity - 1;
+            }
+            else
+            {
+                db.Carts.Remove(c);
+            }
+            db.SaveChanges();
+            return RedirectToAction("Index", "Cart");
         }
 
         public ActionResult Remove(int? id)
         {
-
-            return View();
+            Cart c = db.Carts.Find(id);
+            db.Carts.Remove(c);
+            db.SaveChanges();
+            return RedirectToAction("Index", "Cart");
         }
     }
 }

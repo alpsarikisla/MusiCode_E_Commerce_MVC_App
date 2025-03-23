@@ -83,10 +83,16 @@ body {
     border:1px solid #efefef;
     border-radius:10px;
     float:left;
+
 }
-.productImage
-{
-    width:200px;
+.productContainer:hover {
+    -webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.32);
+    -moz-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.32);
+    box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.32);
+}
+.productImage {
+    width: 200px;
+    min-height: 204px;
 }
 .addcart
 {
@@ -166,4 +172,105 @@ body {
 }
 .tablo tr td {
     border-bottom: 1px solid silver;
+}
+.decreasebutton {
+    padding: 5px 15px;
+    cursor: pointer;
+    border: 1px solid silver;
+    border-right: none;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    text-decoration: none;
+}
+.increasebutton {
+    padding: 5px 15px;
+    cursor: pointer;
+    border: 1px solid silver;
+    border-left: none;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    text-decoration: none;
+}
+.deletebutton {
+    color: darkred;
+    text-decoration:none;
+    font-family:Arial;
+}
+.deletebutton:hover {
+    color:white;
+}
+.quantity {
+    padding: 5px 25px;
+    border: 1px solid silver;
+}
+.totalTable {
+    
+}
+.totalTable tr th {
+    padding:10px;
+    border-bottom:1px solid silver;
+    font-weight:100;
+}
+    .totalTable .total th {
+        font-weight: 900;
+        font-size:17pt;
+    }
+.gotobuy {
+    padding: 15px 100px;
+    background-color: #7e0490;
+    color: white;
+    font-size: 15pt;
+    border: 1px solid #7e0490;
+    border-radius: 5px;
+    display:table-cell;
+    text-decoration:none;
+}
+.totalTable .last td{
+    padding-top:10px;
+    border:none;
+}
+.detailContainer{
+
+}
+.image
+{
+    float:left;
+    width:360px;
+}
+.image img{
+    width:100%
+}
+.detail {
+    padding-left:20px;
+    float: left;
+    width: 580px;
+}
+.row{
+    padding:15px 0px;
+}
+.priceRow
+{
+    font-size:18pt;
+}
+.buyText{
+    font-size:15pt;
+    padding:5px;
+    padding-bottom:7px;
+    width:370px;
+}
+.buyButton {
+    background-color: #7e0490;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 3px;
+    padding:14px 60px 10px 60px;
+    border: none;
+}
+.description
+{
+    margin-top:30px;
+}
+.descriptionContainer{
+    padding-top:30px;
 }

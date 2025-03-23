@@ -1,7 +1,7 @@
 ﻿@using MusiCodeWebApp.Models;
 @model IEnumerable<Product>
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Türkiyenin Müzik Marketi";
     Layout = "~/Views/Shared/_LayoutPage1.cshtml";
 }
 @if (TempData["info"] != null)
@@ -16,19 +16,23 @@
 @foreach (Product item in Model)
 {
     <div class="productContainer">
-        <div class="productImage">
-            <img src="~/Assets/ProductImages/@item.Image" style="width:100%" />
-        </div>
-        <div>
-            <h3>@item.Name</h3>
-            <hr />
-            <div style="padding:10px 0;">
-                @item.Category.Name - @item.Brand.Name
+        <a href="@Url.Action("Detail", "Product", new {id=item.ID})" style="color:inherit; text-decoration:none;">
+            <div class="productImage">
+                <img src="~/Assets/ProductImages/@item.Image" style="width:100%" />
             </div>
-            <div style="padding:10px 0;">
-                <strong>@item.Price ₺</strong>
+            <div>
+                <h3><strong>@item.Brand.Name</strong> @item.Name</h3>
+                <hr />
+                <div style="padding:10px 0;">
+                    @item.Category.Name - @item.Brand.Name
+                </div>
+                <div style="padding:10px 0;">
+                    @{ decimal fakeprice = item.Price + 500; }
+                    <label style="text-decoration:line-through"> @fakeprice ₺</label>
+                    <strong>@item.Price ₺</strong>
+                </div>
             </div>
-        </div>
+        </a>
         <div style="padding:5px 0px; text-align:center">
             <a class="addcart" href="@Url.Action("Add","Cart", new {id=item.ID})">Sepete Ekle</a>
             <a href="@Url.Action("Add","Favorite", new {id=item.ID})">Favorilere Ekle</a>

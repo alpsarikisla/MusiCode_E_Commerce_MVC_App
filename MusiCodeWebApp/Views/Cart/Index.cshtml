@@ -3,6 +3,11 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+    decimal allTotal = 0;
+    foreach (Cart item in Model)
+    {
+        allTotal += item.Quantity * item.Product.Price;
+    }
 }
 @if (TempData["info"] != null)
 {
@@ -14,36 +19,77 @@
     </div>
 }
 <div class="pageTitle">
-    <h3>Favorilerim</h3>
+    <h3>Sepetim</h3>
 </div>
 <table class="tablo" cellpadding="0" cellspacing="0">
-
     @foreach (Cart item in Model)
     {
         <tr>
-
             <td>
                 <img src="~/Assets/ProductImages/@item.Product.Image" width="56" />
             </td>
             <td>
-                <a href="@Url.Action("","")">@item.Product.Name</a>
+                <a href="@Url.Action("Detail","Product", new {id=item.ID})" style="text-decoration:none; color:#7e0490; font-size:13pt">@item.Product.Name</a>
             </td>
-
             <td>
                 @{ decimal fakeprice = item.Product.Price + 500; }
                 <label style="text-decoration:line-through"> @fakeprice ₺</label>&nbsp;&nbsp;&nbsp;
                 <strong style="color: #7e0490"> @item.Product.Price ₺</strong>
             </td>
             <td>
-                <a href="@Url.Action("Increase","Cart", new {id = item.ID})">+</a>
-                <label> @item.Quantity </label>
-                <a href="@Url.Action("Decrease","Cart", new {id = item.ID})">-</a>
+                <a href="@Url.Action("Decrease","Cart", new {id = item.ID})" class="decreasebutton">-</a><label class="quantity">@item.Quantity</label><a href="@Url.Action("Increase","Cart", new {id = item.ID})" class="increasebutton">+</a>
             </td>
             <td>
-                <a href="@Url.Action("Remove","Cart", new {id = item.ID})">Sil</a>
+                @{ decimal total = item.Product.Price * item.Quantity;}
+                <strong>@total ₺</strong>
+            </td>
+            <td>
+                <a href="@Url.Action("Remove","Cart", new {id = item.ID})" class="deletebutton">X</a>
             </td>
         </tr>
     }
+<tr>
+    <td colspan="3"  style="border:none"></td>
+    <td colspan="3"  style="border:none">
+        <table width="100%" cellpadding="0" cellspacing="0" class="totalTable">
+            <tr>
+                <th>
+                    <label>Ara Toplam</label>
+                </th>
+                <th align="center">
+                    @{
+                        decimal tax = allTotal * Convert.ToDecimal(0.80);
+                    }
+                    <label>@tax ₺</label>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <label>Vergi % 20 </label>
+                </th>
+                <th align="center">
+                    @{
+                        decimal tax1 = allTotal * Convert.ToDecimal(0.20);
+                    }
+                    <label>@tax1 ₺</label>
+                </th>
+            </tr>
+            <tr class="total">
+                <th>
+                    <strong>Toplam </strong>
+                </th>
+                <th align="center">
+                    <strong>@allTotal ₺</strong>
+                </th>
+            </tr>
+            <tr class="last">
+                <td colspan="2" align="center">
+                    <a href="@Url.Action("ö","say")" class="gotobuy">Ödemeye Geç</a>
+                </td>
+            </tr>
+        </table>
+    </td>
+</tr>
 </table>
 
 

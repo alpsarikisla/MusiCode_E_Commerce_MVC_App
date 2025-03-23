@@ -32,13 +32,16 @@
                 <td>@item.Name</td>
                 <td>
                     @{ string des = string.Empty;
-                        if (item.Description.Length > 30)
+                        if (item.Description != null)
                         {
-                            des = item.Description.Substring(0, 30) + " ...";
-                        }
-                        else
-                        {
-                            des = item.Description;
+                            if (item.Description.Length > 30)
+                            {
+                                des = item.Description.Substring(0, 30) + " ...";
+                            }
+                            else
+                            {
+                                des = item.Description;
+                            }
                         }
                     }
                     <label>@des</label>

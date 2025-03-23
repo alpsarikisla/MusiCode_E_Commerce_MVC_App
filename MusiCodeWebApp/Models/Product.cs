@@ -35,6 +35,9 @@ namespace MusiCodeWebApp.Models
         [DataType(DataType.MultilineText)]
         public string Description { get; set; }
 
+        [DataType(DataType.MultilineText)]
+        public string Summary { get; set; }
+
         //[DisplayFormat(DataFormatString ="{0:n00}")]
         public decimal Price { get; set; }
 
