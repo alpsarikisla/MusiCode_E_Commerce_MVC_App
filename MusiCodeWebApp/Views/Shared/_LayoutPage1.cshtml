@@ -11,14 +11,15 @@
     <div class="topBarContainer">
         <div class="topBar">
             <div class="topBarLeft">
-                <img src="~/Assets/SiteImages/MusicodeLogo.png" class="logo" />
+                <a href="~/Home/Index"><img src="~/Assets/SiteImages/MusicodeLogo.png" class="logo" /></a>
             </div>
             @if (Session["member"] != null)
             {
                 <div class="topbarRight">
                     <a href="@Url.Action("LogOut","Member")">Çıkış Yap</a>
-                    <a href="@Url.Action("Cart","Member")">Sepetim (0) </a>
-                    <a href="@Url.Action("Favorites","Member")">Favoriler</a>
+                    <a href="@Url.Action("Index","Cart")">Sepetim (@Session["cartcount"]) </a>
+                    <a href="@Url.Action("Index","Cart")">Sepetim ( @Html.Action("_GetCartCount", "Home")) </a>
+                    <a href="@Url.Action("Index","Favorite")">Favoriler</a>
                     <a href="@Url.Action("Profile","Member")">Hesabım</a>
                     <div class="clearfix"></div>
                 </div>
@@ -40,6 +41,7 @@
             <img src="~/Assets/SiteImages/audiosanctuary_sennheiser_spares_banner_3.jpg" style="width:100%; border:1px solid silver"  />
         </div>
         <div class="categoryBar">
+            <h4> Kategoriler </h4>
             @Html.Action("_Index", "Menu")
         </div>
         <div class="productBase">

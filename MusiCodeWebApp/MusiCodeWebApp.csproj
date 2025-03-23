@@ -128,15 +128,18 @@
     <Compile Include="Areas\ManagerPanel\Data\ManagerLoginViewModel.cs" />
     <Compile Include="Areas\ManagerPanel\Filters\ManagerLoginRequiredFilterAttribute.cs" />
     <Compile Include="Areas\ManagerPanel\ManagerPanelAreaRegistration.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\FavoriteController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
+    <Compile Include="Filters\MemberLoginRequiredFilterAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Brand.cs" />
+    <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Entity.cs" />
     <Compile Include="Models\Favorite.cs" />
@@ -174,6 +177,9 @@
     <Content Include="Views\Menu\_Index.cshtml" />
     <Content Include="Views\Member\Register.cshtml" />
     <Content Include="Views\Member\Login.cshtml" />
+    <Content Include="Views\Favorite\Index.cshtml" />
+    <Content Include="Views\Cart\Index.cshtml" />
+    <Content Include="Views\Home\_GetCartCount.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -183,7 +189,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Favorite\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

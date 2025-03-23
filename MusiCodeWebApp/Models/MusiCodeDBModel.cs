@@ -19,6 +19,7 @@ namespace MusiCodeWebApp.Models
         public DbSet<Product> Products { get; set; }
         public DbSet<Member> Members { get; set; }
         public DbSet<Favorite> Favorites { get; set; }
+        public DbSet<Cart> Carts { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

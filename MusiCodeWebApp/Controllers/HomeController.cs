@@ -1,4 +1,5 @@
-﻿using MusiCodeWebApp.Models;
+﻿using MusiCodeWebApp.Filters;
+using MusiCodeWebApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,13 @@ namespace MusiCodeWebApp.Controllers
         {
             return View(db.Products.Where(x => x.IsDeleted == false && x.IsActive == true));
         }
-       
+        [MemberLoginRequiredFilter]
+        public ActionResult _GetCartCount()
+        {
+            int mid = (Session["member"] as Member).ID;
+            int count = db.Carts.Count(x => x.Member_ID == mid);
+            ViewBag.count = count;
+            return View();
+        }
     }
 }

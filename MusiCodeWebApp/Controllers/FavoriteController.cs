@@ -4,15 +4,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MusiCodeWebApp.Filters;
 
 namespace MusiCodeWebApp.Controllers
 {
+    [MemberLoginRequiredFilter]
     public class FavoriteController : Controller
     {
         MusiCodeDBModel db = new MusiCodeDBModel();
         public ActionResult Index()
         {
-            return View();
+            Member m = Session["member"] as Member;
+            return View(db.Favorites.Where(x=> x.Member_ID == m.ID).ToList());
         }
         public ActionResult Add(int? id)
         {
@@ -48,6 +51,20 @@ namespace MusiCodeWebApp.Controllers
                 return RedirectToAction("Login", "Member");
             }
             return RedirectToAction("Index", "Home");
+        }
+
+        public ActionResult Remove(int? id)
+        {
+            if (id == null)
+            {
+                return RedirectToAction("Index", "Favorite");
+            }
+
+            Favorite favorite= db.Favorites.Find(id);
+            db.Favorites.Remove(favorite);
+            db.SaveChanges();
+            TempData["info"] = "Favorilerinizden çıkarıldı";
+            return RedirectToAction("Index", "Favorite");
         }
     }
 }

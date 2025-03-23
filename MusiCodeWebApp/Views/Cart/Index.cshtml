@@ -1,0 +1,51 @@
+﻿@using MusiCodeWebApp.Models
+@model IEnumerable<MusiCodeWebApp.Models.Cart>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+@if (TempData["info"] != null)
+{
+    <div class="validation-summary-warning">
+        @TempData["info"]
+        @{
+            TempData["info"] = null;
+        }
+    </div>
+}
+<div class="pageTitle">
+    <h3>Favorilerim</h3>
+</div>
+<table class="tablo" cellpadding="0" cellspacing="0">
+
+    @foreach (Cart item in Model)
+    {
+        <tr>
+
+            <td>
+                <img src="~/Assets/ProductImages/@item.Product.Image" width="56" />
+            </td>
+            <td>
+                <a href="@Url.Action("","")">@item.Product.Name</a>
+            </td>
+
+            <td>
+                @{ decimal fakeprice = item.Product.Price + 500; }
+                <label style="text-decoration:line-through"> @fakeprice ₺</label>&nbsp;&nbsp;&nbsp;
+                <strong style="color: #7e0490"> @item.Product.Price ₺</strong>
+            </td>
+            <td>
+                <a href="@Url.Action("Increase","Cart", new {id = item.ID})">+</a>
+                <label> @item.Quantity </label>
+                <a href="@Url.Action("Decrease","Cart", new {id = item.ID})">-</a>
+            </td>
+            <td>
+                <a href="@Url.Action("Remove","Cart", new {id = item.ID})">Sil</a>
+            </td>
+        </tr>
+    }
+</table>
+
+
+
+

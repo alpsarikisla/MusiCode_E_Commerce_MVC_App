@@ -39,5 +39,7 @@ namespace MusiCodeWebApp.Models
 
         public virtual ICollection<Favorite> Favorities { get; set; }
 
+        public virtual ICollection<Cart> Carts { get; set; }
+
     }
 }

@@ -49,5 +49,9 @@ namespace MusiCodeWebApp.Models
         public bool IsActive { get; set; }
 
         public bool IsRecent { get; set; }
+
+        public virtual ICollection<Favorite> Favorities { get; set; }
+
+        public virtual ICollection<Cart> Carts { get; set; }
     }
 }

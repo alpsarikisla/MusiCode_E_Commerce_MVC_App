@@ -69,6 +69,7 @@ namespace MusiCodeWebApp.Controllers
                         if (m.IsActive)
                         {
                             Session["member"] = m;
+                            Session["cartcount"] = db.Carts.Count(x => x.Member_ID == m.ID);
                             return RedirectToAction("Index", "Home");
                         }
                         else

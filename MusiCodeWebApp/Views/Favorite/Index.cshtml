@@ -1,0 +1,46 @@
+﻿@using MusiCodeWebApp.Models
+@model IEnumerable<MusiCodeWebApp.Models.Favorite>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+@if (TempData["info"] != null)
+{
+    <div class="validation-summary-warning">
+        @TempData["info"]
+        @{
+            TempData["info"] = null;
+        }
+    </div>
+}
+<div class="pageTitle">
+<h3>Favorilerim</h3>
+</div>
+<table class="tablo" cellpadding="0" cellspacing="0">
+
+    @foreach (Favorite item in Model)
+    {
+        <tr>
+
+            <td>
+                <img src="~/Assets/ProductImages/@item.Product.Image" width="56" />
+            </td>
+            <td>
+                <a href="@Url.Action("","")">@item.Product.Name</a>
+            </td>
+            
+            <td>
+                @{ decimal fakeprice = item.Product.Price + 500; }
+                <label style="text-decoration:line-through"> @fakeprice ₺</label>&nbsp;&nbsp;&nbsp;
+                <strong style="color: #7e0490"> @item.Product.Price ₺</strong>
+            </td>
+            <td>
+                <a href="@Url.Action("Remove","Favorite", new {id = item.ID})">Favorilerimden Çıkart</a>
+            </td>
+        </tr>
+    }
+</table>
+
+
+
+
