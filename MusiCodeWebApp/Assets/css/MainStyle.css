@@ -274,3 +274,62 @@ body {
 .descriptionContainer{
     padding-top:30px;
 }
+.paymentcontainer {
+}
+    .paymentcontainer .title {
+        border: 1px solid rgba(0,0,0,0.32);
+        padding: 20px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        border-bottom:none;
+        background-color:forestgreen;
+        color:white;
+    }
+    .paymentcontainer .content {
+        border: 1px solid rgba(0,0,0,0.32);
+        padding: 20px;
+        padding-top:0;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        padding-top:20px;
+    }
+    .paymentcontainer .content .form {
+        width:600px;
+        float:left;
+    }
+        .paymentcontainer .content .info {
+            width: 290px;
+            float: left;
+            margin-left:20px;
+            padding-top:10px;
+        }
+        .paymentcontainer .content .form .row .half
+        {
+            float:left;
+            width:190px;
+            margin:0 5px;
+        }
+        .formTextbox {
+            padding: 12px;
+            width: 100%;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            border-radius: 5px;
+            border: 1px solid silver;
+        }
+.paymentcontainer .content .form .row {
+    padding: 5px 0px;
+}
+
+.validationmesage {
+    color: red;
+}
+.gotoHome {
+    padding: 10px 100px;
+    background-color: forestgreen;
+    color: white;
+    font-size: 15pt;
+    border-radius: 5px;
+    text-decoration: none;
+}

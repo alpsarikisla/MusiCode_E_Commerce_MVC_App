@@ -1,0 +1,108 @@
+﻿@model MusiCodeWebApp.Models.ViewModels.PaymentViewModel
+@using MusiCodeWebApp.Models
+@{
+    ViewBag.Title = "Payment";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+    decimal allTotal = 0;
+    foreach (Cart item in ViewBag.cart)
+    {
+        allTotal += item.Quantity * item.Product.Price;
+    }
+}
+
+<div class="paymentcontainer">
+    <div class="title">
+        <h2>Ödeme Yap</h2>
+    </div>
+
+    <div class="content">
+        <div>
+            @if (ViewBag.hata != null)
+            {
+                <label style="color:orangered">
+                    @ViewBag.hata
+                </label>
+            }
+        </div>
+        @using (Html.BeginForm())
+        {
+            <div class="form">
+                <div class="row">
+                    <label>Kart Üzerindeki</label>
+                    @Html.EditorFor(x => x.NameSurname, "", new { htmlAttributes = new { @class = "formTextbox", @placeholder = "Adınız Soyadınız" } })
+                    @Html.ValidationMessageFor(x => x.NameSurname, "", new { @class = "validationmesage" })
+                </div>
+                <div class="row">
+                    <label>Kart Numarası</label>
+                    @Html.EditorFor(x => x.CardNumber, "", new { htmlAttributes = new { @class = "formTextbox", @placeholder = "_ _ _ _   _ _ _ _   _ _ _ _   _ _ _ _" } })
+                    @Html.ValidationMessageFor(x => x.CardNumber, "", new { @class = "validationmesage" })
+                </div>
+                <div class="row">
+                    <div class="half">
+                        <label>Ay</label>
+                        @Html.EditorFor(x => x.ReqMonth, "", new { htmlAttributes = new { @class = "formTextbox", @placeholder = "12" } })
+                        @Html.ValidationMessageFor(x => x.ReqMonth, "", new { @class = "validationmesage" })
+                    </div>
+                    <div class="half">
+                        <label>Yıl</label>
+                        @Html.EditorFor(x => x.ReqYear, "", new { htmlAttributes = new { @class = "formTextbox", @placeholder = DateTime.Now.Year.ToString() } })
+                        @Html.ValidationMessageFor(x => x.ReqYear, "", new { @class = "validationmesage" })
+                    </div>
+                    <div class="half">
+                        <label>CVV</label>
+                        @Html.EditorFor(x => x.Cvv, "", new { htmlAttributes = new { @class = "formTextbox", @placeholder = "_ _ _" } })
+                        @Html.ValidationMessageFor(x => x.Cvv, "", new { @class = "validationmesage" })
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+               
+            </div>
+            <div class="info">
+                <table width="100%" cellpadding="0" cellspacing="0" class="totalTable">
+                    <tr>
+                        <th>
+                            <label>Ara Toplam</label>
+                        </th>
+                        <th align="center">
+                            @{
+                                decimal tax = allTotal * Convert.ToDecimal(0.80);
+                            }
+                            <label>@tax ₺</label>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label>Vergi % 20 </label>
+                        </th>
+                        <th align="center">
+                            @{
+                                decimal tax1 = allTotal * Convert.ToDecimal(0.20);
+                            }
+                            <label>@tax1 ₺</label>
+                        </th>
+                    </tr>
+                    <tr class="total">
+                        <th>
+                            <strong>Toplam </strong>
+                        </th>
+                        <th align="center">
+                            <strong>@allTotal ₺</strong>
+                        </th>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="center">
+                            <img src="~/Assets/SiteImages/Dosya_000-2.jpeg" width="100%" style="margin-top:10px" /> 
+                        </td>
+                    </tr>
+                    <tr class="last">
+                        <td colspan="2" align="center">
+                            <input type="submit" class="gotobuy" value="Ödeme Yap" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="clearfix"></div>
+        }
+    </div>
+</div>
+
